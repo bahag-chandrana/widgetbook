@@ -27,28 +27,32 @@ mixin _$PreviewState {
 abstract class $PreviewStateCopyWith<$Res> {
   factory $PreviewStateCopyWith(
           PreviewState value, $Res Function(PreviewState) then) =
-      _$PreviewStateCopyWithImpl<$Res>;
+      _$PreviewStateCopyWithImpl<$Res, PreviewState>;
+  @useResult
   $Res call({WidgetbookUseCase? selectedUseCase});
 }
 
 /// @nodoc
-class _$PreviewStateCopyWithImpl<$Res> implements $PreviewStateCopyWith<$Res> {
+class _$PreviewStateCopyWithImpl<$Res, $Val extends PreviewState>
+    implements $PreviewStateCopyWith<$Res> {
   _$PreviewStateCopyWithImpl(this._value, this._then);
 
-  final PreviewState _value;
   // ignore: unused_field
-  final $Res Function(PreviewState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? selectedUseCase = freezed,
   }) {
     return _then(_value.copyWith(
-      selectedUseCase: selectedUseCase == freezed
+      selectedUseCase: freezed == selectedUseCase
           ? _value.selectedUseCase
           : selectedUseCase // ignore: cast_nullable_to_non_nullable
               as WidgetbookUseCase?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -59,26 +63,25 @@ abstract class _$$_PreviewStateCopyWith<$Res>
           _$_PreviewState value, $Res Function(_$_PreviewState) then) =
       __$$_PreviewStateCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({WidgetbookUseCase? selectedUseCase});
 }
 
 /// @nodoc
 class __$$_PreviewStateCopyWithImpl<$Res>
-    extends _$PreviewStateCopyWithImpl<$Res>
+    extends _$PreviewStateCopyWithImpl<$Res, _$_PreviewState>
     implements _$$_PreviewStateCopyWith<$Res> {
   __$$_PreviewStateCopyWithImpl(
       _$_PreviewState _value, $Res Function(_$_PreviewState) _then)
-      : super(_value, (v) => _then(v as _$_PreviewState));
+      : super(_value, _then);
 
-  @override
-  _$_PreviewState get _value => super._value as _$_PreviewState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? selectedUseCase = freezed,
   }) {
     return _then(_$_PreviewState(
-      selectedUseCase: selectedUseCase == freezed
+      selectedUseCase: freezed == selectedUseCase
           ? _value.selectedUseCase
           : selectedUseCase // ignore: cast_nullable_to_non_nullable
               as WidgetbookUseCase?,
@@ -104,16 +107,16 @@ class _$_PreviewState extends _PreviewState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_PreviewState &&
-            const DeepCollectionEquality()
-                .equals(other.selectedUseCase, selectedUseCase));
+            (identical(other.selectedUseCase, selectedUseCase) ||
+                other.selectedUseCase == selectedUseCase));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(selectedUseCase));
+  int get hashCode => Object.hash(runtimeType, selectedUseCase);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_PreviewStateCopyWith<_$_PreviewState> get copyWith =>
       __$$_PreviewStateCopyWithImpl<_$_PreviewState>(this, _$identity);
 }
@@ -124,7 +127,7 @@ abstract class _PreviewState extends PreviewState {
   _PreviewState._() : super._();
 
   @override
-  WidgetbookUseCase? get selectedUseCase => throw _privateConstructorUsedError;
+  WidgetbookUseCase? get selectedUseCase;
   @override
   @JsonKey(ignore: true)
   _$$_PreviewStateCopyWith<_$_PreviewState> get copyWith =>

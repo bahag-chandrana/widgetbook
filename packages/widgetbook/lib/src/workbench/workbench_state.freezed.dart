@@ -39,7 +39,9 @@ mixin _$WorkbenchState<CustomTheme> {
 abstract class $WorkbenchStateCopyWith<CustomTheme, $Res> {
   factory $WorkbenchStateCopyWith(WorkbenchState<CustomTheme> value,
           $Res Function(WorkbenchState<CustomTheme>) then) =
-      _$WorkbenchStateCopyWithImpl<CustomTheme, $Res>;
+      _$WorkbenchStateCopyWithImpl<CustomTheme, $Res,
+          WorkbenchState<CustomTheme>>;
+  @useResult
   $Res call(
       {ComparisonSetting comparisonSetting,
       WidgetbookTheme<CustomTheme>? theme,
@@ -60,107 +62,113 @@ abstract class $WorkbenchStateCopyWith<CustomTheme, $Res> {
 }
 
 /// @nodoc
-class _$WorkbenchStateCopyWithImpl<CustomTheme, $Res>
+class _$WorkbenchStateCopyWithImpl<CustomTheme, $Res,
+        $Val extends WorkbenchState<CustomTheme>>
     implements $WorkbenchStateCopyWith<CustomTheme, $Res> {
   _$WorkbenchStateCopyWithImpl(this._value, this._then);
 
-  final WorkbenchState<CustomTheme> _value;
   // ignore: unused_field
-  final $Res Function(WorkbenchState<CustomTheme>) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? comparisonSetting = freezed,
+    Object? comparisonSetting = null,
     Object? theme = freezed,
     Object? locale = freezed,
     Object? device = freezed,
     Object? textScaleFactor = freezed,
-    Object? frame = freezed,
-    Object? orientation = freezed,
-    Object? themes = freezed,
-    Object? locales = freezed,
-    Object? devices = freezed,
-    Object? frames = freezed,
-    Object? textScaleFactors = freezed,
+    Object? frame = null,
+    Object? orientation = null,
+    Object? themes = null,
+    Object? locales = null,
+    Object? devices = null,
+    Object? frames = null,
+    Object? textScaleFactors = null,
   }) {
     return _then(_value.copyWith(
-      comparisonSetting: comparisonSetting == freezed
+      comparisonSetting: null == comparisonSetting
           ? _value.comparisonSetting
           : comparisonSetting // ignore: cast_nullable_to_non_nullable
               as ComparisonSetting,
-      theme: theme == freezed
+      theme: freezed == theme
           ? _value.theme
           : theme // ignore: cast_nullable_to_non_nullable
               as WidgetbookTheme<CustomTheme>?,
-      locale: locale == freezed
+      locale: freezed == locale
           ? _value.locale
           : locale // ignore: cast_nullable_to_non_nullable
               as Locale?,
-      device: device == freezed
+      device: freezed == device
           ? _value.device
           : device // ignore: cast_nullable_to_non_nullable
               as Device?,
-      textScaleFactor: textScaleFactor == freezed
+      textScaleFactor: freezed == textScaleFactor
           ? _value.textScaleFactor
           : textScaleFactor // ignore: cast_nullable_to_non_nullable
               as double?,
-      frame: frame == freezed
+      frame: null == frame
           ? _value.frame
           : frame // ignore: cast_nullable_to_non_nullable
               as WidgetbookFrame,
-      orientation: orientation == freezed
+      orientation: null == orientation
           ? _value.orientation
           : orientation // ignore: cast_nullable_to_non_nullable
               as Orientation,
-      themes: themes == freezed
+      themes: null == themes
           ? _value.themes
           : themes // ignore: cast_nullable_to_non_nullable
               as List<WidgetbookTheme<CustomTheme>>,
-      locales: locales == freezed
+      locales: null == locales
           ? _value.locales
           : locales // ignore: cast_nullable_to_non_nullable
               as List<Locale>,
-      devices: devices == freezed
+      devices: null == devices
           ? _value.devices
           : devices // ignore: cast_nullable_to_non_nullable
               as List<Device>,
-      frames: frames == freezed
+      frames: null == frames
           ? _value.frames
           : frames // ignore: cast_nullable_to_non_nullable
               as List<WidgetbookFrame>,
-      textScaleFactors: textScaleFactors == freezed
+      textScaleFactors: null == textScaleFactors
           ? _value.textScaleFactors
           : textScaleFactors // ignore: cast_nullable_to_non_nullable
               as List<double>,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $WidgetbookThemeCopyWith<CustomTheme, $Res>? get theme {
     if (_value.theme == null) {
       return null;
     }
 
     return $WidgetbookThemeCopyWith<CustomTheme, $Res>(_value.theme!, (value) {
-      return _then(_value.copyWith(theme: value));
+      return _then(_value.copyWith(theme: value) as $Val);
     });
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $DeviceCopyWith<$Res>? get device {
     if (_value.device == null) {
       return null;
     }
 
     return $DeviceCopyWith<$Res>(_value.device!, (value) {
-      return _then(_value.copyWith(device: value));
+      return _then(_value.copyWith(device: value) as $Val);
     });
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $WidgetbookFrameCopyWith<$Res> get frame {
     return $WidgetbookFrameCopyWith<$Res>(_value.frame, (value) {
-      return _then(_value.copyWith(frame: value));
+      return _then(_value.copyWith(frame: value) as $Val);
     });
   }
 }
@@ -172,6 +180,7 @@ abstract class _$$_WorkbenchStateCopyWith<CustomTheme, $Res>
           $Res Function(_$_WorkbenchState<CustomTheme>) then) =
       __$$_WorkbenchStateCopyWithImpl<CustomTheme, $Res>;
   @override
+  @useResult
   $Res call(
       {ComparisonSetting comparisonSetting,
       WidgetbookTheme<CustomTheme>? theme,
@@ -196,77 +205,75 @@ abstract class _$$_WorkbenchStateCopyWith<CustomTheme, $Res>
 
 /// @nodoc
 class __$$_WorkbenchStateCopyWithImpl<CustomTheme, $Res>
-    extends _$WorkbenchStateCopyWithImpl<CustomTheme, $Res>
+    extends _$WorkbenchStateCopyWithImpl<CustomTheme, $Res,
+        _$_WorkbenchState<CustomTheme>>
     implements _$$_WorkbenchStateCopyWith<CustomTheme, $Res> {
   __$$_WorkbenchStateCopyWithImpl(_$_WorkbenchState<CustomTheme> _value,
       $Res Function(_$_WorkbenchState<CustomTheme>) _then)
-      : super(_value, (v) => _then(v as _$_WorkbenchState<CustomTheme>));
+      : super(_value, _then);
 
-  @override
-  _$_WorkbenchState<CustomTheme> get _value =>
-      super._value as _$_WorkbenchState<CustomTheme>;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? comparisonSetting = freezed,
+    Object? comparisonSetting = null,
     Object? theme = freezed,
     Object? locale = freezed,
     Object? device = freezed,
     Object? textScaleFactor = freezed,
-    Object? frame = freezed,
-    Object? orientation = freezed,
-    Object? themes = freezed,
-    Object? locales = freezed,
-    Object? devices = freezed,
-    Object? frames = freezed,
-    Object? textScaleFactors = freezed,
+    Object? frame = null,
+    Object? orientation = null,
+    Object? themes = null,
+    Object? locales = null,
+    Object? devices = null,
+    Object? frames = null,
+    Object? textScaleFactors = null,
   }) {
     return _then(_$_WorkbenchState<CustomTheme>(
-      comparisonSetting: comparisonSetting == freezed
+      comparisonSetting: null == comparisonSetting
           ? _value.comparisonSetting
           : comparisonSetting // ignore: cast_nullable_to_non_nullable
               as ComparisonSetting,
-      theme: theme == freezed
+      theme: freezed == theme
           ? _value.theme
           : theme // ignore: cast_nullable_to_non_nullable
               as WidgetbookTheme<CustomTheme>?,
-      locale: locale == freezed
+      locale: freezed == locale
           ? _value.locale
           : locale // ignore: cast_nullable_to_non_nullable
               as Locale?,
-      device: device == freezed
+      device: freezed == device
           ? _value.device
           : device // ignore: cast_nullable_to_non_nullable
               as Device?,
-      textScaleFactor: textScaleFactor == freezed
+      textScaleFactor: freezed == textScaleFactor
           ? _value.textScaleFactor
           : textScaleFactor // ignore: cast_nullable_to_non_nullable
               as double?,
-      frame: frame == freezed
+      frame: null == frame
           ? _value.frame
           : frame // ignore: cast_nullable_to_non_nullable
               as WidgetbookFrame,
-      orientation: orientation == freezed
+      orientation: null == orientation
           ? _value.orientation
           : orientation // ignore: cast_nullable_to_non_nullable
               as Orientation,
-      themes: themes == freezed
+      themes: null == themes
           ? _value._themes
           : themes // ignore: cast_nullable_to_non_nullable
               as List<WidgetbookTheme<CustomTheme>>,
-      locales: locales == freezed
+      locales: null == locales
           ? _value._locales
           : locales // ignore: cast_nullable_to_non_nullable
               as List<Locale>,
-      devices: devices == freezed
+      devices: null == devices
           ? _value._devices
           : devices // ignore: cast_nullable_to_non_nullable
               as List<Device>,
-      frames: frames == freezed
+      frames: null == frames
           ? _value._frames
           : frames // ignore: cast_nullable_to_non_nullable
               as List<WidgetbookFrame>,
-      textScaleFactors: textScaleFactors == freezed
+      textScaleFactors: null == textScaleFactors
           ? _value._textScaleFactors
           : textScaleFactors // ignore: cast_nullable_to_non_nullable
               as List<double>,
@@ -358,16 +365,16 @@ class _$_WorkbenchState<CustomTheme> extends _WorkbenchState<CustomTheme> {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_WorkbenchState<CustomTheme> &&
-            const DeepCollectionEquality()
-                .equals(other.comparisonSetting, comparisonSetting) &&
-            const DeepCollectionEquality().equals(other.theme, theme) &&
-            const DeepCollectionEquality().equals(other.locale, locale) &&
-            const DeepCollectionEquality().equals(other.device, device) &&
-            const DeepCollectionEquality()
-                .equals(other.textScaleFactor, textScaleFactor) &&
-            const DeepCollectionEquality().equals(other.frame, frame) &&
-            const DeepCollectionEquality()
-                .equals(other.orientation, orientation) &&
+            (identical(other.comparisonSetting, comparisonSetting) ||
+                other.comparisonSetting == comparisonSetting) &&
+            (identical(other.theme, theme) || other.theme == theme) &&
+            (identical(other.locale, locale) || other.locale == locale) &&
+            (identical(other.device, device) || other.device == device) &&
+            (identical(other.textScaleFactor, textScaleFactor) ||
+                other.textScaleFactor == textScaleFactor) &&
+            (identical(other.frame, frame) || other.frame == frame) &&
+            (identical(other.orientation, orientation) ||
+                other.orientation == orientation) &&
             const DeepCollectionEquality().equals(other._themes, _themes) &&
             const DeepCollectionEquality().equals(other._locales, _locales) &&
             const DeepCollectionEquality().equals(other._devices, _devices) &&
@@ -379,13 +386,13 @@ class _$_WorkbenchState<CustomTheme> extends _WorkbenchState<CustomTheme> {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(comparisonSetting),
-      const DeepCollectionEquality().hash(theme),
-      const DeepCollectionEquality().hash(locale),
-      const DeepCollectionEquality().hash(device),
-      const DeepCollectionEquality().hash(textScaleFactor),
-      const DeepCollectionEquality().hash(frame),
-      const DeepCollectionEquality().hash(orientation),
+      comparisonSetting,
+      theme,
+      locale,
+      device,
+      textScaleFactor,
+      frame,
+      orientation,
       const DeepCollectionEquality().hash(_themes),
       const DeepCollectionEquality().hash(_locales),
       const DeepCollectionEquality().hash(_devices),
@@ -394,6 +401,7 @@ class _$_WorkbenchState<CustomTheme> extends _WorkbenchState<CustomTheme> {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_WorkbenchStateCopyWith<CustomTheme, _$_WorkbenchState<CustomTheme>>
       get copyWith => __$$_WorkbenchStateCopyWithImpl<CustomTheme,
           _$_WorkbenchState<CustomTheme>>(this, _$identity);
@@ -418,30 +426,29 @@ abstract class _WorkbenchState<CustomTheme>
   _WorkbenchState._() : super._();
 
   @override
-  ComparisonSetting get comparisonSetting => throw _privateConstructorUsedError;
+  ComparisonSetting get comparisonSetting;
   @override
-  WidgetbookTheme<CustomTheme>? get theme => throw _privateConstructorUsedError;
+  WidgetbookTheme<CustomTheme>? get theme;
   @override
-  Locale? get locale => throw _privateConstructorUsedError;
+  Locale? get locale;
   @override
-  Device? get device => throw _privateConstructorUsedError;
+  Device? get device;
   @override
-  double? get textScaleFactor => throw _privateConstructorUsedError;
+  double? get textScaleFactor;
   @override
-  WidgetbookFrame get frame => throw _privateConstructorUsedError;
+  WidgetbookFrame get frame;
   @override
-  Orientation get orientation => throw _privateConstructorUsedError;
+  Orientation get orientation;
   @override
-  List<WidgetbookTheme<CustomTheme>> get themes =>
-      throw _privateConstructorUsedError;
+  List<WidgetbookTheme<CustomTheme>> get themes;
   @override
-  List<Locale> get locales => throw _privateConstructorUsedError;
+  List<Locale> get locales;
   @override
-  List<Device> get devices => throw _privateConstructorUsedError;
+  List<Device> get devices;
   @override
-  List<WidgetbookFrame> get frames => throw _privateConstructorUsedError;
+  List<WidgetbookFrame> get frames;
   @override
-  List<double> get textScaleFactors => throw _privateConstructorUsedError;
+  List<double> get textScaleFactors;
   @override
   @JsonKey(ignore: true)
   _$$_WorkbenchStateCopyWith<CustomTheme, _$_WorkbenchState<CustomTheme>>

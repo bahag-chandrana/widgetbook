@@ -27,29 +27,32 @@ mixin _$TranslateState {
 abstract class $TranslateStateCopyWith<$Res> {
   factory $TranslateStateCopyWith(
           TranslateState value, $Res Function(TranslateState) then) =
-      _$TranslateStateCopyWithImpl<$Res>;
+      _$TranslateStateCopyWithImpl<$Res, TranslateState>;
+  @useResult
   $Res call({Offset offset});
 }
 
 /// @nodoc
-class _$TranslateStateCopyWithImpl<$Res>
+class _$TranslateStateCopyWithImpl<$Res, $Val extends TranslateState>
     implements $TranslateStateCopyWith<$Res> {
   _$TranslateStateCopyWithImpl(this._value, this._then);
 
-  final TranslateState _value;
   // ignore: unused_field
-  final $Res Function(TranslateState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? offset = freezed,
+    Object? offset = null,
   }) {
     return _then(_value.copyWith(
-      offset: offset == freezed
+      offset: null == offset
           ? _value.offset
           : offset // ignore: cast_nullable_to_non_nullable
               as Offset,
-    ));
+    ) as $Val);
   }
 }
 
@@ -60,26 +63,25 @@ abstract class _$$_TranslateStateCopyWith<$Res>
           _$_TranslateState value, $Res Function(_$_TranslateState) then) =
       __$$_TranslateStateCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({Offset offset});
 }
 
 /// @nodoc
 class __$$_TranslateStateCopyWithImpl<$Res>
-    extends _$TranslateStateCopyWithImpl<$Res>
+    extends _$TranslateStateCopyWithImpl<$Res, _$_TranslateState>
     implements _$$_TranslateStateCopyWith<$Res> {
   __$$_TranslateStateCopyWithImpl(
       _$_TranslateState _value, $Res Function(_$_TranslateState) _then)
-      : super(_value, (v) => _then(v as _$_TranslateState));
+      : super(_value, _then);
 
-  @override
-  _$_TranslateState get _value => super._value as _$_TranslateState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? offset = freezed,
+    Object? offset = null,
   }) {
     return _then(_$_TranslateState(
-      offset: offset == freezed
+      offset: null == offset
           ? _value.offset
           : offset // ignore: cast_nullable_to_non_nullable
               as Offset,
@@ -106,15 +108,15 @@ class _$_TranslateState implements _TranslateState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_TranslateState &&
-            const DeepCollectionEquality().equals(other.offset, offset));
+            (identical(other.offset, offset) || other.offset == offset));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(offset));
+  int get hashCode => Object.hash(runtimeType, offset);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_TranslateStateCopyWith<_$_TranslateState> get copyWith =>
       __$$_TranslateStateCopyWithImpl<_$_TranslateState>(this, _$identity);
 }
@@ -123,7 +125,7 @@ abstract class _TranslateState implements TranslateState {
   factory _TranslateState({final Offset offset}) = _$_TranslateState;
 
   @override
-  Offset get offset => throw _privateConstructorUsedError;
+  Offset get offset;
   @override
   @JsonKey(ignore: true)
   _$$_TranslateStateCopyWith<_$_TranslateState> get copyWith =>

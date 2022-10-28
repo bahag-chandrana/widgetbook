@@ -39,7 +39,9 @@ mixin _$RenderingState<CustomTheme> {
 abstract class $RenderingStateCopyWith<CustomTheme, $Res> {
   factory $RenderingStateCopyWith(RenderingState<CustomTheme> value,
           $Res Function(RenderingState<CustomTheme>) then) =
-      _$RenderingStateCopyWithImpl<CustomTheme, $Res>;
+      _$RenderingStateCopyWithImpl<CustomTheme, $Res,
+          RenderingState<CustomTheme>>;
+  @useResult
   $Res call(
       {List<WidgetbookFrame> frames,
       DeviceFrameBuilderFunction deviceFrameBuilder,
@@ -52,59 +54,62 @@ abstract class $RenderingStateCopyWith<CustomTheme, $Res> {
 }
 
 /// @nodoc
-class _$RenderingStateCopyWithImpl<CustomTheme, $Res>
+class _$RenderingStateCopyWithImpl<CustomTheme, $Res,
+        $Val extends RenderingState<CustomTheme>>
     implements $RenderingStateCopyWith<CustomTheme, $Res> {
   _$RenderingStateCopyWithImpl(this._value, this._then);
 
-  final RenderingState<CustomTheme> _value;
   // ignore: unused_field
-  final $Res Function(RenderingState<CustomTheme>) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? frames = freezed,
-    Object? deviceFrameBuilder = freezed,
-    Object? localizationBuilder = freezed,
-    Object? themeBuilder = freezed,
-    Object? scaffoldBuilder = freezed,
-    Object? appBuilder = freezed,
-    Object? textScaleBuilder = freezed,
-    Object? useCaseBuilder = freezed,
+    Object? frames = null,
+    Object? deviceFrameBuilder = null,
+    Object? localizationBuilder = null,
+    Object? themeBuilder = null,
+    Object? scaffoldBuilder = null,
+    Object? appBuilder = null,
+    Object? textScaleBuilder = null,
+    Object? useCaseBuilder = null,
   }) {
     return _then(_value.copyWith(
-      frames: frames == freezed
+      frames: null == frames
           ? _value.frames
           : frames // ignore: cast_nullable_to_non_nullable
               as List<WidgetbookFrame>,
-      deviceFrameBuilder: deviceFrameBuilder == freezed
+      deviceFrameBuilder: null == deviceFrameBuilder
           ? _value.deviceFrameBuilder
           : deviceFrameBuilder // ignore: cast_nullable_to_non_nullable
               as DeviceFrameBuilderFunction,
-      localizationBuilder: localizationBuilder == freezed
+      localizationBuilder: null == localizationBuilder
           ? _value.localizationBuilder
           : localizationBuilder // ignore: cast_nullable_to_non_nullable
               as LocalizationBuilderFunction,
-      themeBuilder: themeBuilder == freezed
+      themeBuilder: null == themeBuilder
           ? _value.themeBuilder
           : themeBuilder // ignore: cast_nullable_to_non_nullable
               as ThemeBuilderFunction<CustomTheme>,
-      scaffoldBuilder: scaffoldBuilder == freezed
+      scaffoldBuilder: null == scaffoldBuilder
           ? _value.scaffoldBuilder
           : scaffoldBuilder // ignore: cast_nullable_to_non_nullable
               as ScaffoldBuilderFunction,
-      appBuilder: appBuilder == freezed
+      appBuilder: null == appBuilder
           ? _value.appBuilder
           : appBuilder // ignore: cast_nullable_to_non_nullable
               as AppBuilderFunction,
-      textScaleBuilder: textScaleBuilder == freezed
+      textScaleBuilder: null == textScaleBuilder
           ? _value.textScaleBuilder
           : textScaleBuilder // ignore: cast_nullable_to_non_nullable
               as TextScaleBuilder,
-      useCaseBuilder: useCaseBuilder == freezed
+      useCaseBuilder: null == useCaseBuilder
           ? _value.useCaseBuilder
           : useCaseBuilder // ignore: cast_nullable_to_non_nullable
               as UseCaseBuilderFunction,
-    ));
+    ) as $Val);
   }
 }
 
@@ -115,6 +120,7 @@ abstract class _$$_RenderingStateCopyWith<CustomTheme, $Res>
           $Res Function(_$_RenderingState<CustomTheme>) then) =
       __$$_RenderingStateCopyWithImpl<CustomTheme, $Res>;
   @override
+  @useResult
   $Res call(
       {List<WidgetbookFrame> frames,
       DeviceFrameBuilderFunction deviceFrameBuilder,
@@ -128,57 +134,55 @@ abstract class _$$_RenderingStateCopyWith<CustomTheme, $Res>
 
 /// @nodoc
 class __$$_RenderingStateCopyWithImpl<CustomTheme, $Res>
-    extends _$RenderingStateCopyWithImpl<CustomTheme, $Res>
+    extends _$RenderingStateCopyWithImpl<CustomTheme, $Res,
+        _$_RenderingState<CustomTheme>>
     implements _$$_RenderingStateCopyWith<CustomTheme, $Res> {
   __$$_RenderingStateCopyWithImpl(_$_RenderingState<CustomTheme> _value,
       $Res Function(_$_RenderingState<CustomTheme>) _then)
-      : super(_value, (v) => _then(v as _$_RenderingState<CustomTheme>));
+      : super(_value, _then);
 
-  @override
-  _$_RenderingState<CustomTheme> get _value =>
-      super._value as _$_RenderingState<CustomTheme>;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? frames = freezed,
-    Object? deviceFrameBuilder = freezed,
-    Object? localizationBuilder = freezed,
-    Object? themeBuilder = freezed,
-    Object? scaffoldBuilder = freezed,
-    Object? appBuilder = freezed,
-    Object? textScaleBuilder = freezed,
-    Object? useCaseBuilder = freezed,
+    Object? frames = null,
+    Object? deviceFrameBuilder = null,
+    Object? localizationBuilder = null,
+    Object? themeBuilder = null,
+    Object? scaffoldBuilder = null,
+    Object? appBuilder = null,
+    Object? textScaleBuilder = null,
+    Object? useCaseBuilder = null,
   }) {
     return _then(_$_RenderingState<CustomTheme>(
-      frames: frames == freezed
+      frames: null == frames
           ? _value._frames
           : frames // ignore: cast_nullable_to_non_nullable
               as List<WidgetbookFrame>,
-      deviceFrameBuilder: deviceFrameBuilder == freezed
+      deviceFrameBuilder: null == deviceFrameBuilder
           ? _value.deviceFrameBuilder
           : deviceFrameBuilder // ignore: cast_nullable_to_non_nullable
               as DeviceFrameBuilderFunction,
-      localizationBuilder: localizationBuilder == freezed
+      localizationBuilder: null == localizationBuilder
           ? _value.localizationBuilder
           : localizationBuilder // ignore: cast_nullable_to_non_nullable
               as LocalizationBuilderFunction,
-      themeBuilder: themeBuilder == freezed
+      themeBuilder: null == themeBuilder
           ? _value.themeBuilder
           : themeBuilder // ignore: cast_nullable_to_non_nullable
               as ThemeBuilderFunction<CustomTheme>,
-      scaffoldBuilder: scaffoldBuilder == freezed
+      scaffoldBuilder: null == scaffoldBuilder
           ? _value.scaffoldBuilder
           : scaffoldBuilder // ignore: cast_nullable_to_non_nullable
               as ScaffoldBuilderFunction,
-      appBuilder: appBuilder == freezed
+      appBuilder: null == appBuilder
           ? _value.appBuilder
           : appBuilder // ignore: cast_nullable_to_non_nullable
               as AppBuilderFunction,
-      textScaleBuilder: textScaleBuilder == freezed
+      textScaleBuilder: null == textScaleBuilder
           ? _value.textScaleBuilder
           : textScaleBuilder // ignore: cast_nullable_to_non_nullable
               as TextScaleBuilder,
-      useCaseBuilder: useCaseBuilder == freezed
+      useCaseBuilder: null == useCaseBuilder
           ? _value.useCaseBuilder
           : useCaseBuilder // ignore: cast_nullable_to_non_nullable
               as UseCaseBuilderFunction,
@@ -263,6 +267,7 @@ class _$_RenderingState<CustomTheme> implements _RenderingState<CustomTheme> {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_RenderingStateCopyWith<CustomTheme, _$_RenderingState<CustomTheme>>
       get copyWith => __$$_RenderingStateCopyWithImpl<CustomTheme,
           _$_RenderingState<CustomTheme>>(this, _$identity);
@@ -282,26 +287,21 @@ abstract class _RenderingState<CustomTheme>
       _$_RenderingState<CustomTheme>;
 
   @override
-  List<WidgetbookFrame> get frames => throw _privateConstructorUsedError;
+  List<WidgetbookFrame> get frames;
   @override
-  DeviceFrameBuilderFunction get deviceFrameBuilder =>
-      throw _privateConstructorUsedError;
+  DeviceFrameBuilderFunction get deviceFrameBuilder;
   @override
-  LocalizationBuilderFunction get localizationBuilder =>
-      throw _privateConstructorUsedError;
+  LocalizationBuilderFunction get localizationBuilder;
   @override
-  ThemeBuilderFunction<CustomTheme> get themeBuilder =>
-      throw _privateConstructorUsedError;
+  ThemeBuilderFunction<CustomTheme> get themeBuilder;
   @override
-  ScaffoldBuilderFunction get scaffoldBuilder =>
-      throw _privateConstructorUsedError;
+  ScaffoldBuilderFunction get scaffoldBuilder;
   @override
-  AppBuilderFunction get appBuilder => throw _privateConstructorUsedError;
+  AppBuilderFunction get appBuilder;
   @override
-  TextScaleBuilder get textScaleBuilder => throw _privateConstructorUsedError;
+  TextScaleBuilder get textScaleBuilder;
   @override
-  UseCaseBuilderFunction get useCaseBuilder =>
-      throw _privateConstructorUsedError;
+  UseCaseBuilderFunction get useCaseBuilder;
   @override
   @JsonKey(ignore: true)
   _$$_RenderingStateCopyWith<CustomTheme, _$_RenderingState<CustomTheme>>

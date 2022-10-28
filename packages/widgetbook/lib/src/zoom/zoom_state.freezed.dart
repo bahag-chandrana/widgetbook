@@ -26,28 +26,32 @@ mixin _$ZoomState {
 /// @nodoc
 abstract class $ZoomStateCopyWith<$Res> {
   factory $ZoomStateCopyWith(ZoomState value, $Res Function(ZoomState) then) =
-      _$ZoomStateCopyWithImpl<$Res>;
+      _$ZoomStateCopyWithImpl<$Res, ZoomState>;
+  @useResult
   $Res call({double zoomLevel});
 }
 
 /// @nodoc
-class _$ZoomStateCopyWithImpl<$Res> implements $ZoomStateCopyWith<$Res> {
+class _$ZoomStateCopyWithImpl<$Res, $Val extends ZoomState>
+    implements $ZoomStateCopyWith<$Res> {
   _$ZoomStateCopyWithImpl(this._value, this._then);
 
-  final ZoomState _value;
   // ignore: unused_field
-  final $Res Function(ZoomState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? zoomLevel = freezed,
+    Object? zoomLevel = null,
   }) {
     return _then(_value.copyWith(
-      zoomLevel: zoomLevel == freezed
+      zoomLevel: null == zoomLevel
           ? _value.zoomLevel
           : zoomLevel // ignore: cast_nullable_to_non_nullable
               as double,
-    ));
+    ) as $Val);
   }
 }
 
@@ -57,25 +61,25 @@ abstract class _$$_ZoomStateCopyWith<$Res> implements $ZoomStateCopyWith<$Res> {
           _$_ZoomState value, $Res Function(_$_ZoomState) then) =
       __$$_ZoomStateCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({double zoomLevel});
 }
 
 /// @nodoc
-class __$$_ZoomStateCopyWithImpl<$Res> extends _$ZoomStateCopyWithImpl<$Res>
+class __$$_ZoomStateCopyWithImpl<$Res>
+    extends _$ZoomStateCopyWithImpl<$Res, _$_ZoomState>
     implements _$$_ZoomStateCopyWith<$Res> {
   __$$_ZoomStateCopyWithImpl(
       _$_ZoomState _value, $Res Function(_$_ZoomState) _then)
-      : super(_value, (v) => _then(v as _$_ZoomState));
+      : super(_value, _then);
 
-  @override
-  _$_ZoomState get _value => super._value as _$_ZoomState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? zoomLevel = freezed,
+    Object? zoomLevel = null,
   }) {
     return _then(_$_ZoomState(
-      zoomLevel: zoomLevel == freezed
+      zoomLevel: null == zoomLevel
           ? _value.zoomLevel
           : zoomLevel // ignore: cast_nullable_to_non_nullable
               as double,
@@ -102,15 +106,16 @@ class _$_ZoomState implements _ZoomState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ZoomState &&
-            const DeepCollectionEquality().equals(other.zoomLevel, zoomLevel));
+            (identical(other.zoomLevel, zoomLevel) ||
+                other.zoomLevel == zoomLevel));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(zoomLevel));
+  int get hashCode => Object.hash(runtimeType, zoomLevel);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ZoomStateCopyWith<_$_ZoomState> get copyWith =>
       __$$_ZoomStateCopyWithImpl<_$_ZoomState>(this, _$identity);
 }
@@ -119,7 +124,7 @@ abstract class _ZoomState implements ZoomState {
   factory _ZoomState({final double zoomLevel}) = _$_ZoomState;
 
   @override
-  double get zoomLevel => throw _privateConstructorUsedError;
+  double get zoomLevel;
   @override
   @JsonKey(ignore: true)
   _$$_ZoomStateCopyWith<_$_ZoomState> get copyWith =>

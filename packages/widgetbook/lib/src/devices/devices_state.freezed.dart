@@ -27,28 +27,32 @@ mixin _$DevicesState {
 abstract class $DevicesStateCopyWith<$Res> {
   factory $DevicesStateCopyWith(
           DevicesState value, $Res Function(DevicesState) then) =
-      _$DevicesStateCopyWithImpl<$Res>;
+      _$DevicesStateCopyWithImpl<$Res, DevicesState>;
+  @useResult
   $Res call({List<Device> devices});
 }
 
 /// @nodoc
-class _$DevicesStateCopyWithImpl<$Res> implements $DevicesStateCopyWith<$Res> {
+class _$DevicesStateCopyWithImpl<$Res, $Val extends DevicesState>
+    implements $DevicesStateCopyWith<$Res> {
   _$DevicesStateCopyWithImpl(this._value, this._then);
 
-  final DevicesState _value;
   // ignore: unused_field
-  final $Res Function(DevicesState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? devices = freezed,
+    Object? devices = null,
   }) {
     return _then(_value.copyWith(
-      devices: devices == freezed
+      devices: null == devices
           ? _value.devices
           : devices // ignore: cast_nullable_to_non_nullable
               as List<Device>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -59,26 +63,25 @@ abstract class _$$_DevicesStateCopyWith<$Res>
           _$_DevicesState value, $Res Function(_$_DevicesState) then) =
       __$$_DevicesStateCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({List<Device> devices});
 }
 
 /// @nodoc
 class __$$_DevicesStateCopyWithImpl<$Res>
-    extends _$DevicesStateCopyWithImpl<$Res>
+    extends _$DevicesStateCopyWithImpl<$Res, _$_DevicesState>
     implements _$$_DevicesStateCopyWith<$Res> {
   __$$_DevicesStateCopyWithImpl(
       _$_DevicesState _value, $Res Function(_$_DevicesState) _then)
-      : super(_value, (v) => _then(v as _$_DevicesState));
+      : super(_value, _then);
 
-  @override
-  _$_DevicesState get _value => super._value as _$_DevicesState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? devices = freezed,
+    Object? devices = null,
   }) {
     return _then(_$_DevicesState(
-      devices: devices == freezed
+      devices: null == devices
           ? _value._devices
           : devices // ignore: cast_nullable_to_non_nullable
               as List<Device>,
@@ -117,6 +120,7 @@ class _$_DevicesState implements _DevicesState {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_DevicesStateCopyWith<_$_DevicesState> get copyWith =>
       __$$_DevicesStateCopyWithImpl<_$_DevicesState>(this, _$identity);
 }
@@ -126,7 +130,7 @@ abstract class _DevicesState implements DevicesState {
       _$_DevicesState;
 
   @override
-  List<Device> get devices => throw _privateConstructorUsedError;
+  List<Device> get devices;
   @override
   @JsonKey(ignore: true)
   _$$_DevicesStateCopyWith<_$_DevicesState> get copyWith =>

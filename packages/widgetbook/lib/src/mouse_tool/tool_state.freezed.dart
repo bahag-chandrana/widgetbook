@@ -26,28 +26,32 @@ mixin _$ToolState {
 /// @nodoc
 abstract class $ToolStateCopyWith<$Res> {
   factory $ToolStateCopyWith(ToolState value, $Res Function(ToolState) then) =
-      _$ToolStateCopyWithImpl<$Res>;
+      _$ToolStateCopyWithImpl<$Res, ToolState>;
+  @useResult
   $Res call({SelectionMode mode});
 }
 
 /// @nodoc
-class _$ToolStateCopyWithImpl<$Res> implements $ToolStateCopyWith<$Res> {
+class _$ToolStateCopyWithImpl<$Res, $Val extends ToolState>
+    implements $ToolStateCopyWith<$Res> {
   _$ToolStateCopyWithImpl(this._value, this._then);
 
-  final ToolState _value;
   // ignore: unused_field
-  final $Res Function(ToolState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? mode = freezed,
+    Object? mode = null,
   }) {
     return _then(_value.copyWith(
-      mode: mode == freezed
+      mode: null == mode
           ? _value.mode
           : mode // ignore: cast_nullable_to_non_nullable
               as SelectionMode,
-    ));
+    ) as $Val);
   }
 }
 
@@ -57,25 +61,25 @@ abstract class _$$_ToolStateCopyWith<$Res> implements $ToolStateCopyWith<$Res> {
           _$_ToolState value, $Res Function(_$_ToolState) then) =
       __$$_ToolStateCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({SelectionMode mode});
 }
 
 /// @nodoc
-class __$$_ToolStateCopyWithImpl<$Res> extends _$ToolStateCopyWithImpl<$Res>
+class __$$_ToolStateCopyWithImpl<$Res>
+    extends _$ToolStateCopyWithImpl<$Res, _$_ToolState>
     implements _$$_ToolStateCopyWith<$Res> {
   __$$_ToolStateCopyWithImpl(
       _$_ToolState _value, $Res Function(_$_ToolState) _then)
-      : super(_value, (v) => _then(v as _$_ToolState));
+      : super(_value, _then);
 
-  @override
-  _$_ToolState get _value => super._value as _$_ToolState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? mode = freezed,
+    Object? mode = null,
   }) {
     return _then(_$_ToolState(
-      mode: mode == freezed
+      mode: null == mode
           ? _value.mode
           : mode // ignore: cast_nullable_to_non_nullable
               as SelectionMode,
@@ -102,15 +106,15 @@ class _$_ToolState implements _ToolState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ToolState &&
-            const DeepCollectionEquality().equals(other.mode, mode));
+            (identical(other.mode, mode) || other.mode == mode));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(mode));
+  int get hashCode => Object.hash(runtimeType, mode);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ToolStateCopyWith<_$_ToolState> get copyWith =>
       __$$_ToolStateCopyWithImpl<_$_ToolState>(this, _$identity);
 }
@@ -119,7 +123,7 @@ abstract class _ToolState implements ToolState {
   factory _ToolState({final SelectionMode mode}) = _$_ToolState;
 
   @override
-  SelectionMode get mode => throw _privateConstructorUsedError;
+  SelectionMode get mode;
   @override
   @JsonKey(ignore: true)
   _$$_ToolStateCopyWith<_$_ToolState> get copyWith =>

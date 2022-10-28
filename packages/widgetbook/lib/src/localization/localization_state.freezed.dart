@@ -28,29 +28,32 @@ mixin _$LocalizationState {
 abstract class $LocalizationStateCopyWith<$Res> {
   factory $LocalizationStateCopyWith(
           LocalizationState value, $Res Function(LocalizationState) then) =
-      _$LocalizationStateCopyWithImpl<$Res>;
+      _$LocalizationStateCopyWithImpl<$Res, LocalizationState>;
+  @useResult
   $Res call({List<LocalizationsDelegate<dynamic>>? localizationsDelegates});
 }
 
 /// @nodoc
-class _$LocalizationStateCopyWithImpl<$Res>
+class _$LocalizationStateCopyWithImpl<$Res, $Val extends LocalizationState>
     implements $LocalizationStateCopyWith<$Res> {
   _$LocalizationStateCopyWithImpl(this._value, this._then);
 
-  final LocalizationState _value;
   // ignore: unused_field
-  final $Res Function(LocalizationState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? localizationsDelegates = freezed,
   }) {
     return _then(_value.copyWith(
-      localizationsDelegates: localizationsDelegates == freezed
+      localizationsDelegates: freezed == localizationsDelegates
           ? _value.localizationsDelegates
           : localizationsDelegates // ignore: cast_nullable_to_non_nullable
               as List<LocalizationsDelegate<dynamic>>?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -61,26 +64,25 @@ abstract class _$$_LocalizationStateCopyWith<$Res>
           $Res Function(_$_LocalizationState) then) =
       __$$_LocalizationStateCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({List<LocalizationsDelegate<dynamic>>? localizationsDelegates});
 }
 
 /// @nodoc
 class __$$_LocalizationStateCopyWithImpl<$Res>
-    extends _$LocalizationStateCopyWithImpl<$Res>
+    extends _$LocalizationStateCopyWithImpl<$Res, _$_LocalizationState>
     implements _$$_LocalizationStateCopyWith<$Res> {
   __$$_LocalizationStateCopyWithImpl(
       _$_LocalizationState _value, $Res Function(_$_LocalizationState) _then)
-      : super(_value, (v) => _then(v as _$_LocalizationState));
+      : super(_value, _then);
 
-  @override
-  _$_LocalizationState get _value => super._value as _$_LocalizationState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? localizationsDelegates = freezed,
   }) {
     return _then(_$_LocalizationState(
-      localizationsDelegates: localizationsDelegates == freezed
+      localizationsDelegates: freezed == localizationsDelegates
           ? _value._localizationsDelegates
           : localizationsDelegates // ignore: cast_nullable_to_non_nullable
               as List<LocalizationsDelegate<dynamic>>?,
@@ -124,6 +126,7 @@ class _$_LocalizationState implements _LocalizationState {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_LocalizationStateCopyWith<_$_LocalizationState> get copyWith =>
       __$$_LocalizationStateCopyWithImpl<_$_LocalizationState>(
           this, _$identity);
@@ -135,8 +138,7 @@ abstract class _LocalizationState implements LocalizationState {
           localizationsDelegates}) = _$_LocalizationState;
 
   @override
-  List<LocalizationsDelegate<dynamic>>? get localizationsDelegates =>
-      throw _privateConstructorUsedError;
+  List<LocalizationsDelegate<dynamic>>? get localizationsDelegates;
   @override
   @JsonKey(ignore: true)
   _$$_LocalizationStateCopyWith<_$_LocalizationState> get copyWith =>
